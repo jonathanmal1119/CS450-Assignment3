@@ -1,6 +1,6 @@
 {
-  "homepage": "https://jonathanmal1119.github.io/CS-450-Assignment2",
-  "name": "personal-profile",
+  "homepage": "https://jonathanmal1119.github.io/CS450-Assignment3",
+  "name": "cs450-assignment3",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "d3": "^7.9.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-scripts": "5.0.1",
