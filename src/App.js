@@ -29,8 +29,37 @@ class App extends Component {
   renderChart() {
     const data = this.state.wordFrequency.sort((a,b)=>b[1]-a[1]).slice(0,5)
     console.log(data)
-    // your code here
     
+    const svg = d3.select(".child2").select("svg").attr("width", 1000).attr("height", 400);
+    
+    const fontScale = d3.scaleLinear()
+      .domain([d3.max(data, d => d[1]), 1]) 
+      .range([64, 16]);
+    
+    const texts = svg.selectAll("text").data(data, d => d[0]);
+    
+    texts.exit()
+      .transition()
+      .duration(1000)
+      .attr("font-size", "0px")
+      .remove();
+    
+    texts.enter()
+      .append("text")
+      .text(d => d[0])
+      .attr("x", (d, i) => 20 + (i * 200))
+      .attr("y", 200)
+      .attr("font-size", "0px")
+      .attr("text-anchor", "left")
+      .transition()
+      .duration(2000)
+      .attr("font-size", d => fontScale(d[1]) + "px");
+    
+    texts.transition()
+      .duration(1500)
+      .attr("x", (d, i) => 20 + (i * 200))
+      .attr("font-size", d => fontScale(d[1]) + "px")
+      .text(d => d[0]);
   }
 
   render() {
